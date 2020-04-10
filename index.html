@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+        integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+        crossorigin=""></script>
+    <title>口罩咧</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="meun">
+            <img id="bg" src="images/Bg.png" alt="header bg">
+            <div class="header">
+                <img id="logo" src="images/logo.png" alt="logo">
+                <h1>口罩咧</h1>
+                <img id="adult" src="images/adult.png" alt="adult">
+                <h3>1</h3>
+                <img id="child" src="images/child.png" alt="child">
+                <h3>0</h3>
+                <img id="notice" src="images/27 – time.png" alt="noticeoff">
+            </div>
+            <div class="search">
+                <img src="images/search.png" alt="search icon">
+                <input type="text" placeholder="目前位置">
+                <button id="position"></button>
+            </div>
+            <div class="information">
+                <p>方圓五公里以內</p>
+                <p id="update-time">time</p>
+                <h1>共有25家</h1>
+                <h3>排序和篩選</h3>
+            </div>
+            <div class="content">
+                <!--<div class="store-card">
+                    <div class="number">
+                        <div class="item">
+                            <img src="images/adult_enough.png" alt="dataNumber">
+                            <p class='number-adult enough'>售完</p>
+                        </div>
+                        <div class="item">
+                            <img src="images/child_less.png" alt="dataNumber">
+                            <p class='number-child less'>售完</p>
+                        </div>
+                    </div>
+                    <div class="split-line"></div>
+                    <div class="store-info">
+                        <h2>store name</h2>
+                        <a href="#">藥局詳細</a>
+                        <a href="#">撥打電話</a>
+                        <a href="#">打開地圖</a>
+                    </div>
+                    <div class="distance">0.65km</div>
+                </div>-->
+            </div>
+        </div>
+        <div id="mapid" class="map"></div>
+    </div>
+    <script src="js/mask.js"></script>
+</body>
+
+</html>
