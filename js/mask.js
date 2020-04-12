@@ -8,26 +8,34 @@ loadData(maskUrl).then(function(response){
     // Update time
     var updateTime = featureData[0].properties.updated;
     setUpdateTime(updateTime);
-    // polygons of store
+    // Create map
     var map = L.map('mapid', {
         center: [22.998348, 120.212721],
-        zoom: 16
+        zoom: 16,
+        preferCanvas: true,
     });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-    var latlongList = [];
+    // Create layerGroup
+    var layGroup = L.layerGroup().addTo(map);
+    var markers = data.features.map(function(feature){
+        return L.marker(feature.geometry.coordinates.reverse());
+    });
+    layGroup.clearLayers();
+    markers.forEach(function(marker){
+        return layGroup.addLayer(marker);
+    });
+    //var latlongList = [22.999887, 120.219456];
     //var testArray = [[1,2], [2, 3], [3, 4]];
     //console.log(testArray);
-    featureData.forEach(function(oneData){
-        latlongList.push(oneData.geometry.coordinates);
-    });
+    //featureData.forEach(function(oneData){
+        //latlongList.push(oneData.geometry.coordinates);
+        //var marks = L.marker(oneData.geometry.coordinates).addTo(map);
+    //});
     //console.log(latlongList.slice(0,10));
-    var polygon = L.polygon([
-        [22.998348, 120.212721]
-    ]).addTo(map);
-    //var polygon = L.polygon(latlongList).addTo(map);
-    console.log(polygon);
+    //var marker = L.circleMarker(latlongList).addTo(map);
+
     // Information of clients
     var testData = featureData.slice(200,210);
     console.log(testData);
